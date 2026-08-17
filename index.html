@@ -105,7 +105,7 @@
             padding: 0 30px;
         }
 
-        /* BREAKING */
+        /* BREAKING NEWS */
 
         .breaking-bar {
             background: #dc2626;
@@ -128,7 +128,7 @@
             font-weight: 700;
         }
 
-        /* GRID */
+        /* MAIN GRID */
 
         .main-grid {
             display: grid;
@@ -210,7 +210,7 @@
             margin-top: 7px;
         }
 
-        /* NEWS LIST */
+        /* NEWS GRID */
 
         .news-grid {
             display: grid;
@@ -223,6 +223,7 @@
             border-radius: 10px;
             padding: 18px;
             transition: 0.2s;
+            background: #ffffff;
         }
 
         .news-card:hover {
@@ -253,6 +254,19 @@
             font-size: 12px;
             color: #9ca3af;
             margin-top: 12px;
+        }
+
+        .read-story {
+            display: inline-block;
+            margin-top: 14px;
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .read-story:hover {
+            text-decoration: underline;
         }
 
         /* MARKETS */
@@ -333,6 +347,13 @@
             font-size: 14px;
         }
 
+        /* LOADING */
+
+        .loading {
+            color: #6b7280;
+            font-size: 15px;
+        }
+
         /* RESPONSIVE */
 
         @media (max-width: 900px) {
@@ -383,7 +404,9 @@
 
 </head>
 
+
 <body>
+
 
     <!-- HEADER -->
 
@@ -411,6 +434,7 @@
                 </div>
 
             </div>
+
 
             <nav>
 
@@ -466,6 +490,7 @@
                         ⭐ Top Stories
                     </h2>
 
+
                     <div class="top-stories">
 
 
@@ -475,60 +500,30 @@
                                 WORLD
                             </div>
 
-                            <h2>
-                                Global News Will Appear Here
+                            <h2 id="main-story-title">
+                                Loading latest world news...
                             </h2>
 
-                            <p>
-                                Our news engine will automatically
-                                bring the latest important stories
-                                from around the world.
+                            <p id="main-story-description">
+                                Fetching the latest stories from our news source.
                             </p>
 
                         </div>
 
 
-                        <div class="side-stories">
-
-
-                            <div class="small-story">
-
-                                <span>
-                                    INDIA
-                                </span>
-
-                                <h3>
-                                    Latest India headlines will appear here
-                                </h3>
-
-                            </div>
-
+                        <div class="side-stories" id="top-side-stories">
 
                             <div class="small-story">
 
                                 <span>
-                                    BUSINESS
+                                    LOADING
                                 </span>
 
                                 <h3>
-                                    Business and economy updates
+                                    Loading latest stories...
                                 </h3>
 
                             </div>
-
-
-                            <div class="small-story">
-
-                                <span>
-                                    TECHNOLOGY
-                                </span>
-
-                                <h3>
-                                    Latest technology developments
-                                </h3>
-
-                            </div>
-
 
                         </div>
 
@@ -545,81 +540,34 @@
                         🌍 World News
                     </h2>
 
-                    <div class="news-grid">
 
-
-                        <div class="news-card">
-
-                            <div class="news-category">
-                                WORLD
-                            </div>
-
-                            <h3>
-                                Global news updates will appear here
-                            </h3>
-
-                            <p>
-                                International news from trusted
-                                sources will be displayed here.
-                            </p>
-
-                            <div class="news-time">
-                                Updated recently
-                            </div>
-
-                        </div>
-
+                    <div
+                        class="news-grid"
+                        id="world-news"
+                    >
 
                         <div class="news-card">
 
                             <div class="news-category">
-                                WORLD
+                                LOADING
                             </div>
 
                             <h3>
-                                International developments
+                                Loading latest world news...
                             </h3>
 
                             <p>
-                                Important developments from around
-                                the world.
+                                Please wait while we fetch the latest stories.
                             </p>
 
-                            <div class="news-time">
-                                Updated recently
-                            </div>
-
                         </div>
-
-
-                        <div class="news-card">
-
-                            <div class="news-category">
-                                WORLD
-                            </div>
-
-                            <h3>
-                                Latest global headlines
-                            </h3>
-
-                            <p>
-                                Breaking stories and global events
-                                will appear here.
-                            </p>
-
-                            <div class="news-time">
-                                Updated recently
-                            </div>
-
-                        </div>
-
 
                     </div>
 
                 </div>
 
 
-                <!-- INDIA -->
+                <!-- INDIA NEWS -->
 
                 <div class="card">
 
@@ -627,8 +575,8 @@
                         🇮🇳 India News
                     </h2>
 
-                    <div class="news-grid">
 
+                    <div class="news-grid">
 
                         <div class="news-card">
 
@@ -637,12 +585,11 @@
                             </div>
 
                             <h3>
-                                Latest India news
+                                India news will appear here
                             </h3>
 
                             <p>
-                                India news and important national
-                                developments.
+                                India news feed will be connected soon.
                             </p>
 
                         </div>
@@ -659,8 +606,7 @@
                             </h3>
 
                             <p>
-                                Latest business and economic news
-                                from India.
+                                Business news feed will be connected soon.
                             </p>
 
                         </div>
@@ -677,11 +623,10 @@
                             </h3>
 
                             <p>
-                                Latest technology and startup news.
+                                Technology news feed will be connected soon.
                             </p>
 
                         </div>
-
 
                     </div>
 
@@ -865,7 +810,6 @@
 
                     </div>
 
-
                 </div>
 
 
@@ -876,6 +820,7 @@
                     <h2 class="section-title">
                         🏏 Sports
                     </h2>
+
 
                     <div class="small-story">
 
@@ -917,6 +862,248 @@
         </p>
 
     </footer>
+
+
+    <!-- NEWS JAVASCRIPT -->
+
+    <script>
+
+        async function loadWorldNews() {
+
+            const newsContainer =
+                document.getElementById("world-news");
+
+            const mainStoryTitle =
+                document.getElementById("main-story-title");
+
+            const mainStoryDescription =
+                document.getElementById("main-story-description");
+
+            const topSideStories =
+                document.getElementById("top-side-stories");
+
+
+            try {
+
+                const response =
+                    await fetch("/api/news");
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Failed to fetch news"
+                    );
+
+                }
+
+
+                const data =
+                    await response.json();
+
+
+                if (
+                    !data.success ||
+                    !data.articles ||
+                    data.articles.length === 0
+                ) {
+
+                    throw new Error(
+                        "No news available"
+                    );
+
+                }
+
+
+                const articles =
+                    data.articles;
+
+
+                /*
+                 * TOP MAIN STORY
+                 */
+
+                const firstArticle =
+                    articles[0];
+
+
+                mainStoryTitle.textContent =
+                    firstArticle.title;
+
+
+                mainStoryDescription.textContent =
+                    `Latest update from ${firstArticle.source}.`;
+
+
+                /*
+                 * TOP SIDE STORIES
+                 */
+
+                topSideStories.innerHTML = "";
+
+
+                articles
+                    .slice(1, 4)
+                    .forEach(article => {
+
+                        const story =
+                            document.createElement("div");
+
+
+                        story.className =
+                            "small-story";
+
+
+                        story.innerHTML = `
+
+                            <span>
+                                ${article.category}
+                            </span>
+
+                            <h3>
+                                ${article.title}
+                            </h3>
+
+                        `;
+
+
+                        topSideStories.appendChild(
+                            story
+                        );
+
+                    });
+
+
+                /*
+                 * WORLD NEWS CARDS
+                 */
+
+                newsContainer.innerHTML = "";
+
+
+                articles.forEach(article => {
+
+                    const articleCard =
+                        document.createElement("div");
+
+
+                    articleCard.className =
+                        "news-card";
+
+
+                    articleCard.innerHTML = `
+
+                        <div class="news-category">
+                            ${article.source}
+                        </div>
+
+                        <h3>
+                            ${article.title}
+                        </h3>
+
+                        <p>
+                            Latest update from
+                            ${article.source}.
+                        </p>
+
+                        <div class="news-time">
+                            ${formatDate(article.published)}
+                        </div>
+
+                        <a
+                            class="read-story"
+                            href="${article.url}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Read full story →
+                        </a>
+
+                    `;
+
+
+                    newsContainer.appendChild(
+                        articleCard
+                    );
+
+                });
+
+            }
+
+
+            catch (error) {
+
+                console.error(
+                    "News loading error:",
+                    error
+                );
+
+
+                newsContainer.innerHTML = `
+
+                    <div class="news-card">
+
+                        <div class="news-category">
+                            ERROR
+                        </div>
+
+                        <h3>
+                            Unable to load news
+                        </h3>
+
+                        <p>
+                            Please try again later.
+                        </p>
+
+                    </div>
+
+                `;
+
+
+                mainStoryTitle.textContent =
+                    "Unable to load latest news";
+
+
+                mainStoryDescription.textContent =
+                    "Please try again later.";
+
+            }
+
+        }
+
+
+        function formatDate(dateString) {
+
+            if (!dateString) {
+
+                return "Recently";
+
+            }
+
+
+            const date =
+                new Date(dateString);
+
+
+            if (isNaN(date)) {
+
+                return dateString;
+
+            }
+
+
+            return date.toLocaleString();
+
+        }
+
+
+        /*
+         * LOAD NEWS WHEN PAGE OPENS
+         */
+
+        loadWorldNews();
+
+    </script>
 
 
 </body>
