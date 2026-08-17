@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developers.cloudflare.com/workers/wrangler/config-schema.json",
+  "name": "global-news-dashboard",
+  "main": "worker.js",
+  "compatibility_date": "2026-08-17",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/api/*"
+    ]
+  },
+  "observability": {
+    "enabled": true
+  }
+}
