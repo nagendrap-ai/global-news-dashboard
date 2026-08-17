@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global News Dashboard</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 20px 40px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        header h1 {
+            font-size: 28px;
+        }
+
+        nav {
+            margin-top: 15px;
+        }
+
+        nav a {
+            margin-right: 25px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .breaking {
+            background: #d71920;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            margin-bottom: 10px;
+        }
+
+        .news-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .market-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 30px;
+            background: #222;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>🌍 Global News Dashboard</h1>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">World</a>
+            <a href="#">India</a>
+            <a href="#">Business</a>
+            <a href="#">Technology</a>
+            <a href="#">Sports</a>
+            <a href="#">Stocks</a>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <div class="breaking">
+            🔴 BREAKING NEWS — Latest worldwide updates
+        </div>
+
+        <div class="grid">
+
+            <main>
+
+                <div class="card">
+                    <h2>🌍 World News</h2>
+
+                    <div class="news-item">
+                        <h3>Global news will appear here</h3>
+                        <p>Our news engine will automatically bring the latest stories.</p>
+                    </div>
+
+                    <div class="news-item">
+                        <h3>International developments</h3>
+                        <p>Worldwide news updates will be displayed in this section.</p>
+                    </div>
+
+                    <div class="news-item">
+                        <h3>Latest global headlines</h3>
+                        <p>Real-time news feeds will be connected later.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>🇮🇳 India News</h2>
+
+                    <div class="news-item">
+                        <h3>India news will appear here</h3>
+                        <p>Latest India updates will be displayed here.</p>
+                    </div>
+
+                    <div class="news-item">
+                        <h3>Business and economy</h3>
+                        <p>India business news will be added later.</p>
+                    </div>
+                </div>
+
+            </main>
+
+            <aside>
+
+                <div class="card">
+                    <h2>📈 Markets</h2>
+
+                    <div class="market-item">
+                        <span>NIFTY 50</span>
+                        <strong>--</strong>
+                    </div>
+
+                    <div class="market-item">
+                        <span>SENSEX</span>
+                        <strong>--</strong>
+                    </div>
+
+                    <div class="market-item">
+                        <span>S&P 500</span>
+                        <strong>--</strong>
+                    </div>
+
+                    <div class="market-item">
+                        <span>NASDAQ</span>
+                        <strong>--</strong>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>🔥 Trending</h2>
+
+                    <div class="news-item">
+                        #1 Trending story
+                    </div>
+
+                    <div class="news-item">
+                        #2 Trending story
+                    </div>
+
+                    <div class="news-item">
+                        #3 Trending story
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+
+    </div>
+
+    <footer>
+        Global News Dashboard © 2026
+    </footer>
+
+</body>
+</html>
