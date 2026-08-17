@@ -62,6 +62,21 @@ export default {
 
 
             // --------------------------------
+            // INDIA NEWS
+            // --------------------------------
+
+            if (category === "india") {
+
+                return fetchRssNews(
+                    "https://www.hindustantimes.com/feeds/rss/india-news/rssfeed.xml",
+                    "Hindustan Times",
+                    "India"
+                );
+
+            }
+
+
+            // --------------------------------
             // INVALID CATEGORY
             // --------------------------------
 
@@ -71,7 +86,8 @@ export default {
                     error: "Unsupported news category",
                     supportedCategories: [
                         "world",
-                        "technology"
+                        "technology",
+                        "india"
                     ]
                 },
                 400
