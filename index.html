@@ -21,8 +21,6 @@
             color: #1f2937;
         }
 
-        /* HEADER */
-
         header {
             background: #ffffff;
             border-bottom: 1px solid #e5e7eb;
@@ -76,8 +74,6 @@
             cursor: pointer;
         }
 
-        /* NAVIGATION */
-
         nav {
             margin-top: 18px;
             display: flex;
@@ -97,15 +93,11 @@
             color: #2563eb;
         }
 
-        /* MAIN */
-
         .container {
             max-width: 1400px;
             margin: 25px auto;
             padding: 0 30px;
         }
-
-        /* BREAKING NEWS */
 
         .breaking-bar {
             background: #dc2626;
@@ -128,15 +120,11 @@
             font-weight: 700;
         }
 
-        /* MAIN GRID */
-
         .main-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 25px;
         }
-
-        /* CARDS */
 
         .card {
             background: white;
@@ -151,8 +139,6 @@
             margin-bottom: 20px;
             color: #111827;
         }
-
-        /* TOP STORIES */
 
         .top-stories {
             display: grid;
@@ -180,11 +166,19 @@
         .main-story h2 {
             font-size: 26px;
             margin-bottom: 10px;
+            line-height: 1.3;
         }
 
         .main-story p {
             font-size: 14px;
             line-height: 1.5;
+        }
+
+        .main-story a {
+            margin-top: 15px;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
         }
 
         .side-stories {
@@ -208,9 +202,17 @@
         .small-story h3 {
             font-size: 16px;
             margin-top: 7px;
+            line-height: 1.4;
         }
 
-        /* NEWS GRID */
+        .small-story a {
+            display: inline-block;
+            margin-top: 8px;
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+        }
 
         .news-grid {
             display: grid;
@@ -222,8 +224,8 @@
             border: 1px solid #e5e7eb;
             border-radius: 10px;
             padding: 18px;
-            transition: 0.2s;
             background: #ffffff;
+            transition: 0.2s;
         }
 
         .news-card:hover {
@@ -269,8 +271,6 @@
             text-decoration: underline;
         }
 
-        /* MARKETS */
-
         .market-item {
             display: flex;
             justify-content: space-between;
@@ -304,12 +304,6 @@
             color: #16a34a;
         }
 
-        .negative {
-            color: #dc2626;
-        }
-
-        /* TRENDING */
-
         .trending-item {
             display: flex;
             gap: 15px;
@@ -332,7 +326,10 @@
             line-height: 1.4;
         }
 
-        /* FOOTER */
+        .loading {
+            color: #6b7280;
+            padding: 20px;
+        }
 
         footer {
             background: #111827;
@@ -346,15 +343,6 @@
             margin: 5px;
             font-size: 14px;
         }
-
-        /* LOADING */
-
-        .loading {
-            color: #6b7280;
-            font-size: 15px;
-        }
-
-        /* RESPONSIVE */
 
         @media (max-width: 900px) {
 
@@ -408,8 +396,6 @@
 <body>
 
 
-    <!-- HEADER -->
-
     <header>
 
         <div class="header-container">
@@ -439,13 +425,13 @@
             <nav>
 
                 <a href="#">Home</a>
-                <a href="#">World</a>
-                <a href="#">India</a>
-                <a href="#">Business</a>
-                <a href="#">Technology</a>
-                <a href="#">Sports</a>
-                <a href="#">Entertainment</a>
-                <a href="#">Stocks</a>
+                <a href="#world">World</a>
+                <a href="#india">India</a>
+                <a href="#business">Business</a>
+                <a href="#technology">Technology</a>
+                <a href="#sports">Sports</a>
+                <a href="#entertainment">Entertainment</a>
+                <a href="#stocks">Stocks</a>
 
             </nav>
 
@@ -454,12 +440,8 @@
     </header>
 
 
-    <!-- MAIN -->
-
     <div class="container">
 
-
-        <!-- BREAKING NEWS -->
 
         <div class="breaking-bar">
 
@@ -477,8 +459,6 @@
         <div class="main-grid">
 
 
-            <!-- LEFT SIDE -->
-
             <main>
 
 
@@ -494,24 +474,30 @@
                     <div class="top-stories">
 
 
-                        <div class="main-story">
+                        <div
+                            class="main-story"
+                            id="main-story"
+                        >
 
                             <div class="category">
-                                WORLD
+                                LOADING
                             </div>
 
-                            <h2 id="main-story-title">
-                                Loading latest world news...
+                            <h2>
+                                Loading latest news...
                             </h2>
 
-                            <p id="main-story-description">
-                                Fetching the latest stories from our news source.
+                            <p>
+                                Fetching the latest world and technology stories.
                             </p>
 
                         </div>
 
 
-                        <div class="side-stories" id="top-side-stories">
+                        <div
+                            class="side-stories"
+                            id="top-side-stories"
+                        >
 
                             <div class="small-story">
 
@@ -534,7 +520,10 @@
 
                 <!-- WORLD NEWS -->
 
-                <div class="card">
+                <div
+                    class="card"
+                    id="world"
+                >
 
                     <h2 class="section-title">
                         🌍 World News
@@ -546,20 +535,8 @@
                         id="world-news"
                     >
 
-                        <div class="news-card">
-
-                            <div class="news-category">
-                                LOADING
-                            </div>
-
-                            <h3>
-                                Loading latest world news...
-                            </h3>
-
-                            <p>
-                                Please wait while we fetch the latest stories.
-                            </p>
-
+                        <div class="loading">
+                            Loading World News...
                         </div>
 
                     </div>
@@ -567,9 +544,38 @@
                 </div>
 
 
-                <!-- INDIA NEWS -->
+                <!-- TECHNOLOGY NEWS -->
 
-                <div class="card">
+                <div
+                    class="card"
+                    id="technology"
+                >
+
+                    <h2 class="section-title">
+                        💻 Technology News
+                    </h2>
+
+
+                    <div
+                        class="news-grid"
+                        id="technology-news"
+                    >
+
+                        <div class="loading">
+                            Loading Technology News...
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- INDIA -->
+
+                <div
+                    class="card"
+                    id="india"
+                >
 
                     <h2 class="section-title">
                         🇮🇳 India News
@@ -585,45 +591,11 @@
                             </div>
 
                             <h3>
-                                India news will appear here
+                                India news feed coming next
                             </h3>
 
                             <p>
-                                India news feed will be connected soon.
-                            </p>
-
-                        </div>
-
-
-                        <div class="news-card">
-
-                            <div class="news-category">
-                                BUSINESS
-                            </div>
-
-                            <h3>
-                                Indian business updates
-                            </h3>
-
-                            <p>
-                                Business news feed will be connected soon.
-                            </p>
-
-                        </div>
-
-
-                        <div class="news-card">
-
-                            <div class="news-category">
-                                TECHNOLOGY
-                            </div>
-
-                            <h3>
-                                Technology in India
-                            </h3>
-
-                            <p>
-                                Technology news feed will be connected soon.
+                                We will connect a live India news source next.
                             </p>
 
                         </div>
@@ -636,14 +608,15 @@
             </main>
 
 
-            <!-- RIGHT SIDE -->
-
             <aside>
 
 
                 <!-- MARKETS -->
 
-                <div class="card">
+                <div
+                    class="card"
+                    id="stocks"
+                >
 
                     <h2 class="section-title">
                         📈 Markets
@@ -733,7 +706,6 @@
 
                     </div>
 
-
                 </div>
 
 
@@ -753,7 +725,7 @@
                         </div>
 
                         <h3>
-                            Trending story will appear here
+                            Trending news will appear here
                         </h3>
 
                     </div>
@@ -766,7 +738,7 @@
                         </div>
 
                         <h3>
-                            Popular news across the world
+                            Popular stories will appear here
                         </h3>
 
                     </div>
@@ -785,42 +757,19 @@
                     </div>
 
 
-                    <div class="trending-item">
-
-                        <div class="trend-number">
-                            04
-                        </div>
-
-                        <h3>
-                            Important developing story
-                        </h3>
-
-                    </div>
-
-
-                    <div class="trending-item">
-
-                        <div class="trend-number">
-                            05
-                        </div>
-
-                        <h3>
-                            Technology and business trend
-                        </h3>
-
-                    </div>
-
                 </div>
 
 
                 <!-- SPORTS -->
 
-                <div class="card">
+                <div
+                    class="card"
+                    id="sports"
+                >
 
                     <h2 class="section-title">
                         🏏 Sports
                     </h2>
-
 
                     <div class="small-story">
 
@@ -829,7 +778,7 @@
                         </span>
 
                         <h3>
-                            Latest sports news will appear here
+                            Live sports news coming next
                         </h3>
 
                     </div>
@@ -839,13 +788,10 @@
 
             </aside>
 
-
         </div>
 
     </div>
 
-
-    <!-- FOOTER -->
 
     <footer>
 
@@ -864,35 +810,30 @@
     </footer>
 
 
-    <!-- NEWS JAVASCRIPT -->
-
     <script>
 
-        async function loadWorldNews() {
 
-            const newsContainer =
-                document.getElementById("world-news");
+        async function fetchNews(
+            category,
+            containerId
+        ) {
 
-            const mainStoryTitle =
-                document.getElementById("main-story-title");
-
-            const mainStoryDescription =
-                document.getElementById("main-story-description");
-
-            const topSideStories =
-                document.getElementById("top-side-stories");
+            const container =
+                document.getElementById(containerId);
 
 
             try {
 
                 const response =
-                    await fetch("/api/news");
+                    await fetch(
+                        `/api/news?category=${category}`
+                    );
 
 
                 if (!response.ok) {
 
                     throw new Error(
-                        "Failed to fetch news"
+                        "News API request failed"
                     );
 
                 }
@@ -909,124 +850,61 @@
                 ) {
 
                     throw new Error(
-                        "No news available"
+                        "No articles available"
                     );
 
                 }
 
 
-                const articles =
-                    data.articles;
+                container.innerHTML = "";
 
 
-                /*
-                 * TOP MAIN STORY
-                 */
+                data.articles.forEach(
+                    article => {
 
-                const firstArticle =
-                    articles[0];
-
-
-                mainStoryTitle.textContent =
-                    firstArticle.title;
-
-
-                mainStoryDescription.textContent =
-                    `Latest update from ${firstArticle.source}.`;
-
-
-                /*
-                 * TOP SIDE STORIES
-                 */
-
-                topSideStories.innerHTML = "";
-
-
-                articles
-                    .slice(1, 4)
-                    .forEach(article => {
-
-                        const story =
+                        const card =
                             document.createElement("div");
 
 
-                        story.className =
-                            "small-story";
+                        card.className =
+                            "news-card";
 
 
-                        story.innerHTML = `
+                        card.innerHTML = `
 
-                            <span>
-                                ${article.category}
-                            </span>
+                            <div class="news-category">
+                                ${article.source}
+                            </div>
 
                             <h3>
                                 ${article.title}
                             </h3>
 
+                            <p>
+                                Latest update from
+                                ${article.source}.
+                            </p>
+
+                            <div class="news-time">
+                                ${formatDate(article.published)}
+                            </div>
+
+                            <a
+                                class="read-story"
+                                href="${article.url}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Read full story →
+                            </a>
+
                         `;
 
 
-                        topSideStories.appendChild(
-                            story
-                        );
+                        container.appendChild(card);
 
-                    });
-
-
-                /*
-                 * WORLD NEWS CARDS
-                 */
-
-                newsContainer.innerHTML = "";
-
-
-                articles.forEach(article => {
-
-                    const articleCard =
-                        document.createElement("div");
-
-
-                    articleCard.className =
-                        "news-card";
-
-
-                    articleCard.innerHTML = `
-
-                        <div class="news-category">
-                            ${article.source}
-                        </div>
-
-                        <h3>
-                            ${article.title}
-                        </h3>
-
-                        <p>
-                            Latest update from
-                            ${article.source}.
-                        </p>
-
-                        <div class="news-time">
-                            ${formatDate(article.published)}
-                        </div>
-
-                        <a
-                            class="read-story"
-                            href="${article.url}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Read full story →
-                        </a>
-
-                    `;
-
-
-                    newsContainer.appendChild(
-                        articleCard
-                    );
-
-                });
+                    }
+                );
 
             }
 
@@ -1034,12 +912,12 @@
             catch (error) {
 
                 console.error(
-                    "News loading error:",
+                    `${category} news error:`,
                     error
                 );
 
 
-                newsContainer.innerHTML = `
+                container.innerHTML = `
 
                     <div class="news-card">
 
@@ -1059,20 +937,161 @@
 
                 `;
 
+            }
 
-                mainStoryTitle.textContent =
-                    "Unable to load latest news";
+        }
 
 
-                mainStoryDescription.textContent =
-                    "Please try again later.";
+        async function loadTopStories() {
+
+            const mainStory =
+                document.getElementById(
+                    "main-story"
+                );
+
+
+            const sideStories =
+                document.getElementById(
+                    "top-side-stories"
+                );
+
+
+            try {
+
+                const [
+                    worldResponse,
+                    technologyResponse
+                ] = await Promise.all([
+
+                    fetch(
+                        "/api/news?category=world"
+                    ),
+
+                    fetch(
+                        "/api/news?category=technology"
+                    )
+
+                ]);
+
+
+                const worldData =
+                    await worldResponse.json();
+
+
+                const technologyData =
+                    await technologyResponse.json();
+
+
+                const allArticles = [
+
+                    ...(worldData.articles || []),
+
+                    ...(technologyData.articles || [])
+
+                ];
+
+
+                if (
+                    allArticles.length === 0
+                ) {
+
+                    return;
+
+                }
+
+
+                const mainArticle =
+                    allArticles[0];
+
+
+                mainStory.innerHTML = `
+
+                    <div class="category">
+                        ${mainArticle.category}
+                    </div>
+
+                    <h2>
+                        ${mainArticle.title}
+                    </h2>
+
+                    <p>
+                        Latest update from
+                        ${mainArticle.source}.
+                    </p>
+
+                    <a
+                        href="${mainArticle.url}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Read full story →
+                    </a>
+
+                `;
+
+
+                sideStories.innerHTML = "";
+
+
+                allArticles
+                    .slice(1, 4)
+                    .forEach(article => {
+
+                        const story =
+                            document.createElement(
+                                "div"
+                            );
+
+
+                        story.className =
+                            "small-story";
+
+
+                        story.innerHTML = `
+
+                            <span>
+                                ${article.category}
+                            </span>
+
+                            <h3>
+                                ${article.title}
+                            </h3>
+
+                            <a
+                                href="${article.url}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Read story →
+                            </a>
+
+                        `;
+
+
+                        sideStories.appendChild(
+                            story
+                        );
+
+                    });
+
+            }
+
+
+            catch (error) {
+
+                console.error(
+                    "Top stories error:",
+                    error
+                );
 
             }
 
         }
 
 
-        function formatDate(dateString) {
+        function formatDate(
+            dateString
+        ) {
 
             if (!dateString) {
 
@@ -1085,7 +1104,9 @@
                 new Date(dateString);
 
 
-            if (isNaN(date)) {
+            if (
+                isNaN(date.getTime())
+            ) {
 
                 return dateString;
 
@@ -1098,10 +1119,23 @@
 
 
         /*
-         * LOAD NEWS WHEN PAGE OPENS
+         * LOAD LIVE NEWS
          */
 
-        loadWorldNews();
+        fetchNews(
+            "world",
+            "world-news"
+        );
+
+
+        fetchNews(
+            "technology",
+            "technology-news"
+        );
+
+
+        loadTopStories();
+
 
     </script>
 
