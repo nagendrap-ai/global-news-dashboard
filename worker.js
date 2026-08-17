@@ -62,14 +62,14 @@ export default {
 
 
             // --------------------------------
-            // INDIA NEWS
+            // INDIA NEWS - TELUGU
             // --------------------------------
 
             if (category === "india") {
 
                 return fetchRssNews(
-                    "https://www.hindustantimes.com/feeds/rss/india-news/rssfeed.xml",
-                    "Hindustan Times",
+                    "https://telugu.oneindia.com/rss/feeds/telugu-news-fb.xml",
+                    "OneIndia Telugu",
                     "India"
                 );
 
@@ -283,6 +283,34 @@ function decodeXml(text) {
         .replace(
             /&#39;/g,
             "'"
+        )
+        .replace(
+            /&#8217;/g,
+            "’"
+        )
+        .replace(
+            /&#8216;/g,
+            "‘"
+        )
+        .replace(
+            /&#8220;/g,
+            "“"
+        )
+        .replace(
+            /&#8221;/g,
+            "”"
+        )
+        .replace(
+            /&#8211;/g,
+            "–"
+        )
+        .replace(
+            /&#8212;/g,
+            "—"
+        )
+        .replace(
+            /&#8230;/g,
+            "…"
         );
 
 }
