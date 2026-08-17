@@ -67,9 +67,15 @@ export default {
 
             if (category === "india") {
 
+                const indiaTeluguRss =
+                    "https://news.google.com/rss" +
+                    "?hl=te" +
+                    "&gl=IN" +
+                    "&ceid=IN:te";
+
                 return fetchRssNews(
-                    "https://telugu.oneindia.com/rss/feeds/telugu-news-fb.xml",
-                    "OneIndia Telugu",
+                    indiaTeluguRss,
+                    "Google News",
                     "India"
                 );
 
@@ -119,7 +125,12 @@ async function fetchRssNews(
     try {
 
         const response =
-            await fetch(rssUrl);
+            await fetch(rssUrl, {
+                headers: {
+                    "User-Agent":
+                        "Mozilla/5.0 GlobalNewsDashboard/1.0"
+                }
+            });
 
 
         if (!response.ok) {
@@ -130,7 +141,9 @@ async function fetchRssNews(
                     source: source,
                     category: category,
                     error:
-                        `Unable to fetch ${source} RSS feed`
+                        `Unable to fetch ${source} RSS feed`,
+                    status:
+                        response.status
                 },
                 502
             );
