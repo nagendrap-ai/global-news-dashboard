@@ -1,214 +1,924 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Global News Dashboard</title>
 
     <style>
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #f4f6f8;
-            color: #222;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f3f5f8;
+            color: #1f2937;
         }
+
+        /* HEADER */
 
         header {
             background: #ffffff;
-            padding: 20px 40px;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        header h1 {
-            font-size: 28px;
+        .header-container {
+            max-width: 1400px;
+            margin: auto;
+            padding: 18px 30px;
         }
+
+        .top-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .logo span {
+            color: #2563eb;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .search-box input {
+            width: 260px;
+            padding: 10px 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .search-box button {
+            border: none;
+            background: #2563eb;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        /* NAVIGATION */
 
         nav {
-            margin-top: 15px;
+            margin-top: 18px;
+            display: flex;
+            gap: 28px;
+            overflow-x: auto;
         }
 
         nav a {
-            margin-right: 25px;
             text-decoration: none;
-            color: #333;
-            font-weight: bold;
+            color: #374151;
+            font-weight: 600;
+            padding-bottom: 10px;
+            white-space: nowrap;
         }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        /* MAIN */
 
         .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
+            max-width: 1400px;
+            margin: 25px auto;
+            padding: 0 30px;
         }
 
-        .breaking {
-            background: #d71920;
+        /* BREAKING */
+
+        .breaking-bar {
+            background: #dc2626;
             color: white;
-            padding: 15px;
+            padding: 14px 20px;
             border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
             margin-bottom: 25px;
+            font-weight: 600;
         }
 
-        .grid {
+        .breaking-label {
+            background: white;
+            color: #dc2626;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* GRID */
+
+        .main-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 25px;
         }
 
+        /* CARDS */
+
         .card {
             background: white;
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            padding: 22px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
         }
 
-        .card h2 {
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+
+        /* TOP STORIES */
+
+        .top-stories {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 18px;
+        }
+
+        .main-story {
+            min-height: 260px;
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            color: white;
+            border-radius: 10px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .main-story .category {
+            font-size: 13px;
+            margin-bottom: 10px;
+            opacity: 0.85;
+        }
+
+        .main-story h2 {
+            font-size: 26px;
             margin-bottom: 10px;
         }
 
-        .news-item {
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
+        .main-story p {
+            font-size: 14px;
+            line-height: 1.5;
         }
 
-        .news-item:last-child {
-            border-bottom: none;
+        .side-stories {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
+
+        .small-story {
+            padding: 15px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+        }
+
+        .small-story span {
+            font-size: 12px;
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        .small-story h3 {
+            font-size: 16px;
+            margin-top: 7px;
+        }
+
+        /* NEWS LIST */
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .news-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 18px;
+            transition: 0.2s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .news-category {
+            font-size: 12px;
+            color: #2563eb;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .news-card h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .news-card p {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .news-time {
+            font-size: 12px;
+            color: #9ca3af;
+            margin-top: 12px;
+        }
+
+        /* MARKETS */
 
         .market-item {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             padding: 15px 0;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #e5e7eb;
         }
 
+        .market-item:last-child {
+            border-bottom: none;
+        }
+
+        .market-name {
+            font-weight: 600;
+        }
+
+        .market-value {
+            text-align: right;
+        }
+
+        .market-price {
+            font-weight: bold;
+        }
+
+        .market-change {
+            font-size: 13px;
+            margin-top: 3px;
+        }
+
+        .positive {
+            color: #16a34a;
+        }
+
+        .negative {
+            color: #dc2626;
+        }
+
+        /* TRENDING */
+
+        .trending-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .trending-item:last-child {
+            border-bottom: none;
+        }
+
+        .trend-number {
+            font-size: 22px;
+            font-weight: bold;
+            color: #9ca3af;
+        }
+
+        .trending-item h3 {
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        /* FOOTER */
+
         footer {
+            background: #111827;
+            color: #d1d5db;
             text-align: center;
             padding: 30px;
-            margin-top: 30px;
-            background: #222;
-            color: white;
+            margin-top: 40px;
         }
+
+        footer p {
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 900px) {
+
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .search-box {
+                display: none;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .header-container {
+                padding: 15px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .top-stories {
+                grid-template-columns: 1fr;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
+            nav {
+                gap: 18px;
+            }
+
+        }
+
     </style>
+
 </head>
 
 <body>
 
-    <header>
-        <h1>🌍 Global News Dashboard</h1>
+    <!-- HEADER -->
 
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">World</a>
-            <a href="#">India</a>
-            <a href="#">Business</a>
-            <a href="#">Technology</a>
-            <a href="#">Sports</a>
-            <a href="#">Stocks</a>
-        </nav>
+    <header>
+
+        <div class="header-container">
+
+            <div class="top-header">
+
+                <div class="logo">
+                    🌍 Global<span>News</span>
+                </div>
+
+                <div class="search-box">
+
+                    <input
+                        type="text"
+                        placeholder="Search news..."
+                    >
+
+                    <button>
+                        Search
+                    </button>
+
+                </div>
+
+            </div>
+
+            <nav>
+
+                <a href="#">Home</a>
+                <a href="#">World</a>
+                <a href="#">India</a>
+                <a href="#">Business</a>
+                <a href="#">Technology</a>
+                <a href="#">Sports</a>
+                <a href="#">Entertainment</a>
+                <a href="#">Stocks</a>
+
+            </nav>
+
+        </div>
+
     </header>
+
+
+    <!-- MAIN -->
 
     <div class="container">
 
-        <div class="breaking">
-            🔴 BREAKING NEWS — Latest worldwide updates
+
+        <!-- BREAKING NEWS -->
+
+        <div class="breaking-bar">
+
+            <span class="breaking-label">
+                BREAKING
+            </span>
+
+            <span>
+                Latest worldwide news and market updates
+            </span>
+
         </div>
 
-        <div class="grid">
+
+        <div class="main-grid">
+
+
+            <!-- LEFT SIDE -->
 
             <main>
 
-                <div class="card">
-                    <h2>🌍 World News</h2>
 
-                    <div class="news-item">
-                        <h3>Global news will appear here</h3>
-                        <p>Our news engine will automatically bring the latest stories.</p>
-                    </div>
-
-                    <div class="news-item">
-                        <h3>International developments</h3>
-                        <p>Worldwide news updates will be displayed in this section.</p>
-                    </div>
-
-                    <div class="news-item">
-                        <h3>Latest global headlines</h3>
-                        <p>Real-time news feeds will be connected later.</p>
-                    </div>
-                </div>
+                <!-- TOP STORIES -->
 
                 <div class="card">
-                    <h2>🇮🇳 India News</h2>
 
-                    <div class="news-item">
-                        <h3>India news will appear here</h3>
-                        <p>Latest India updates will be displayed here.</p>
+                    <h2 class="section-title">
+                        ⭐ Top Stories
+                    </h2>
+
+                    <div class="top-stories">
+
+
+                        <div class="main-story">
+
+                            <div class="category">
+                                WORLD
+                            </div>
+
+                            <h2>
+                                Global News Will Appear Here
+                            </h2>
+
+                            <p>
+                                Our news engine will automatically
+                                bring the latest important stories
+                                from around the world.
+                            </p>
+
+                        </div>
+
+
+                        <div class="side-stories">
+
+
+                            <div class="small-story">
+
+                                <span>
+                                    INDIA
+                                </span>
+
+                                <h3>
+                                    Latest India headlines will appear here
+                                </h3>
+
+                            </div>
+
+
+                            <div class="small-story">
+
+                                <span>
+                                    BUSINESS
+                                </span>
+
+                                <h3>
+                                    Business and economy updates
+                                </h3>
+
+                            </div>
+
+
+                            <div class="small-story">
+
+                                <span>
+                                    TECHNOLOGY
+                                </span>
+
+                                <h3>
+                                    Latest technology developments
+                                </h3>
+
+                            </div>
+
+
+                        </div>
+
                     </div>
 
-                    <div class="news-item">
-                        <h3>Business and economy</h3>
-                        <p>India business news will be added later.</p>
-                    </div>
                 </div>
+
+
+                <!-- WORLD NEWS -->
+
+                <div class="card">
+
+                    <h2 class="section-title">
+                        🌍 World News
+                    </h2>
+
+                    <div class="news-grid">
+
+
+                        <div class="news-card">
+
+                            <div class="news-category">
+                                WORLD
+                            </div>
+
+                            <h3>
+                                Global news updates will appear here
+                            </h3>
+
+                            <p>
+                                International news from trusted
+                                sources will be displayed here.
+                            </p>
+
+                            <div class="news-time">
+                                Updated recently
+                            </div>
+
+                        </div>
+
+
+                        <div class="news-card">
+
+                            <div class="news-category">
+                                WORLD
+                            </div>
+
+                            <h3>
+                                International developments
+                            </h3>
+
+                            <p>
+                                Important developments from around
+                                the world.
+                            </p>
+
+                            <div class="news-time">
+                                Updated recently
+                            </div>
+
+                        </div>
+
+
+                        <div class="news-card">
+
+                            <div class="news-category">
+                                WORLD
+                            </div>
+
+                            <h3>
+                                Latest global headlines
+                            </h3>
+
+                            <p>
+                                Breaking stories and global events
+                                will appear here.
+                            </p>
+
+                            <div class="news-time">
+                                Updated recently
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- INDIA -->
+
+                <div class="card">
+
+                    <h2 class="section-title">
+                        🇮🇳 India News
+                    </h2>
+
+                    <div class="news-grid">
+
+
+                        <div class="news-card">
+
+                            <div class="news-category">
+                                INDIA
+                            </div>
+
+                            <h3>
+                                Latest India news
+                            </h3>
+
+                            <p>
+                                India news and important national
+                                developments.
+                            </p>
+
+                        </div>
+
+
+                        <div class="news-card">
+
+                            <div class="news-category">
+                                BUSINESS
+                            </div>
+
+                            <h3>
+                                Indian business updates
+                            </h3>
+
+                            <p>
+                                Latest business and economic news
+                                from India.
+                            </p>
+
+                        </div>
+
+
+                        <div class="news-card">
+
+                            <div class="news-category">
+                                TECHNOLOGY
+                            </div>
+
+                            <h3>
+                                Technology in India
+                            </h3>
+
+                            <p>
+                                Latest technology and startup news.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
 
             </main>
 
+
+            <!-- RIGHT SIDE -->
+
             <aside>
 
-                <div class="card">
-                    <h2>📈 Markets</h2>
 
-                    <div class="market-item">
-                        <span>NIFTY 50</span>
-                        <strong>--</strong>
-                    </div>
-
-                    <div class="market-item">
-                        <span>SENSEX</span>
-                        <strong>--</strong>
-                    </div>
-
-                    <div class="market-item">
-                        <span>S&P 500</span>
-                        <strong>--</strong>
-                    </div>
-
-                    <div class="market-item">
-                        <span>NASDAQ</span>
-                        <strong>--</strong>
-                    </div>
-                </div>
+                <!-- MARKETS -->
 
                 <div class="card">
-                    <h2>🔥 Trending</h2>
 
-                    <div class="news-item">
-                        #1 Trending story
+                    <h2 class="section-title">
+                        📈 Markets
+                    </h2>
+
+
+                    <div class="market-item">
+
+                        <div class="market-name">
+                            NIFTY 50
+                        </div>
+
+                        <div class="market-value">
+
+                            <div class="market-price">
+                                --
+                            </div>
+
+                            <div class="market-change positive">
+                                --
+                            </div>
+
+                        </div>
+
                     </div>
 
-                    <div class="news-item">
-                        #2 Trending story
+
+                    <div class="market-item">
+
+                        <div class="market-name">
+                            SENSEX
+                        </div>
+
+                        <div class="market-value">
+
+                            <div class="market-price">
+                                --
+                            </div>
+
+                            <div class="market-change positive">
+                                --
+                            </div>
+
+                        </div>
+
                     </div>
 
-                    <div class="news-item">
-                        #3 Trending story
+
+                    <div class="market-item">
+
+                        <div class="market-name">
+                            S&P 500
+                        </div>
+
+                        <div class="market-value">
+
+                            <div class="market-price">
+                                --
+                            </div>
+
+                            <div class="market-change positive">
+                                --
+                            </div>
+
+                        </div>
+
                     </div>
+
+
+                    <div class="market-item">
+
+                        <div class="market-name">
+                            NASDAQ
+                        </div>
+
+                        <div class="market-value">
+
+                            <div class="market-price">
+                                --
+                            </div>
+
+                            <div class="market-change positive">
+                                --
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
                 </div>
+
+
+                <!-- TRENDING -->
+
+                <div class="card">
+
+                    <h2 class="section-title">
+                        🔥 Trending
+                    </h2>
+
+
+                    <div class="trending-item">
+
+                        <div class="trend-number">
+                            01
+                        </div>
+
+                        <h3>
+                            Trending story will appear here
+                        </h3>
+
+                    </div>
+
+
+                    <div class="trending-item">
+
+                        <div class="trend-number">
+                            02
+                        </div>
+
+                        <h3>
+                            Popular news across the world
+                        </h3>
+
+                    </div>
+
+
+                    <div class="trending-item">
+
+                        <div class="trend-number">
+                            03
+                        </div>
+
+                        <h3>
+                            Latest trending topic
+                        </h3>
+
+                    </div>
+
+
+                    <div class="trending-item">
+
+                        <div class="trend-number">
+                            04
+                        </div>
+
+                        <h3>
+                            Important developing story
+                        </h3>
+
+                    </div>
+
+
+                    <div class="trending-item">
+
+                        <div class="trend-number">
+                            05
+                        </div>
+
+                        <h3>
+                            Technology and business trend
+                        </h3>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- SPORTS -->
+
+                <div class="card">
+
+                    <h2 class="section-title">
+                        🏏 Sports
+                    </h2>
+
+                    <div class="small-story">
+
+                        <span>
+                            SPORTS
+                        </span>
+
+                        <h3>
+                            Latest sports news will appear here
+                        </h3>
+
+                    </div>
+
+                </div>
+
 
             </aside>
+
 
         </div>
 
     </div>
 
+
+    <!-- FOOTER -->
+
     <footer>
-        Global News Dashboard © 2026
+
+        <p>
+            🌍 GlobalNews Dashboard
+        </p>
+
+        <p>
+            Worldwide news, markets and technology updates
+        </p>
+
+        <p>
+            © 2026 GlobalNews
+        </p>
+
     </footer>
 
+
 </body>
+
 </html>
