@@ -14,6 +14,7 @@ export default {
                 message: "Global News Dashboard API is working!",
                 timestamp: new Date().toISOString()
             });
+
         }
 
 
@@ -67,15 +68,9 @@ export default {
 
             if (category === "india") {
 
-                const indiaTeluguRss =
-                    "https://news.google.com/rss" +
-                    "?hl=te" +
-                    "&gl=IN" +
-                    "&ceid=IN:te";
-
                 return fetchRssNews(
-                    indiaTeluguRss,
-                    "Google News",
+                    "https://ntvtelugu.com/feed",
+                    "NTV Telugu",
                     "India"
                 );
 
@@ -125,12 +120,17 @@ async function fetchRssNews(
     try {
 
         const response =
-            await fetch(rssUrl, {
-                headers: {
-                    "User-Agent":
-                        "Mozilla/5.0 GlobalNewsDashboard/1.0"
+            await fetch(
+                rssUrl,
+                {
+                    headers: {
+                        "User-Agent":
+                            "Mozilla/5.0 GlobalNewsDashboard/1.0",
+                        "Accept":
+                            "application/rss+xml, application/xml, text/xml"
+                    }
                 }
-            });
+            );
 
 
         if (!response.ok) {
@@ -160,7 +160,7 @@ async function fetchRssNews(
 
         const itemMatches =
             xml.match(
-                /<item>[\s\S]*?<\/item>/g
+                /<item\b[\s\S]*?<\/item>/gi
             ) || [];
 
 
@@ -171,19 +171,19 @@ async function fetchRssNews(
 
             const titleMatch =
                 item.match(
-                    /<title>([\s\S]*?)<\/title>/
+                    /<title[^>]*>([\s\S]*?)<\/title>/i
                 );
 
 
             const linkMatch =
                 item.match(
-                    /<link>([\s\S]*?)<\/link>/
+                    /<link[^>]*>([\s\S]*?)<\/link>/i
                 );
 
 
             const pubDateMatch =
                 item.match(
-                    /<pubDate>([\s\S]*?)<\/pubDate>/
+                    /<pubDate[^>]*>([\s\S]*?)<\/pubDate>/i
                 );
 
 
@@ -273,54 +273,67 @@ async function fetchRssNews(
 function decodeXml(text) {
 
     return text
+
         .replace(
             /<!\[CDATA\[([\s\S]*?)\]\]>/g,
             "$1"
         )
+
         .replace(
             /&amp;/g,
             "&"
         )
+
         .replace(
             /&lt;/g,
             "<"
         )
+
         .replace(
             /&gt;/g,
             ">"
         )
+
         .replace(
             /&quot;/g,
             '"'
         )
+
         .replace(
             /&#39;/g,
             "'"
         )
+
         .replace(
             /&#8217;/g,
             "’"
         )
+
         .replace(
             /&#8216;/g,
             "‘"
         )
+
         .replace(
             /&#8220;/g,
             "“"
         )
+
         .replace(
             /&#8221;/g,
             "”"
         )
+
         .replace(
             /&#8211;/g,
             "–"
         )
+
         .replace(
             /&#8212;/g,
             "—"
         )
+
         .replace(
             /&#8230;/g,
             "…"
